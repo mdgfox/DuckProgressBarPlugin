@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="16" />
+    <bytecodeTargetLevel target="18">
+      <module name="DuckProgressBarPlugin.main" target="11" />
+      <module name="DuckProgressBarPlugin.test" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
