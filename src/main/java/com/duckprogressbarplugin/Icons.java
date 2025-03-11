@@ -1,4 +1,4 @@
-package com.example.duckprogressbarplugin;
+package main.java.com.duckprogressbarplugin;
 
 import com.intellij.openapi.util.IconLoader;
 

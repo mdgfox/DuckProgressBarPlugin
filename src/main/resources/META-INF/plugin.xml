@@ -1,20 +1,22 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.example.DuckProgressBarPlugin</id>
+    <id>com.DuckProgressBarPlugin</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>DuckProgressBarPlugin</name>
+    <name>Duck Progress Bar</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="sashaaka4774@gmail.com">Alex Khmelev</vendor>
+    <vendor email="alex.khmelev.dev@gmail.com">Alex Khmelev</vendor>
+
+    <idea-version since-build="233" until-build="243.*"/>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Some try to create own plugin in language I don't know.
+    Just relax and watch how duck is going on! Duck! Duck!
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -28,7 +30,7 @@
     </extensions>
 
     <applicationListeners>
-        <listener class="com.example.duckprogressbarplugin.ProgressBarListener"
-                  topic="com.intellij.ide.ui.LafManagerListener"/>
+        <listener class="ProgressBarListener" topic="com.intellij.ide.ui.LafManagerListener"/>
+        <listener class="ProgressBarListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>
