@@ -30,3 +30,15 @@ build
 
 # IntelliJ Platform Gradle Plugin: downloaded IDEs and sandbox
 .intellijPlatform
+
+# IDE files
+.idea
+*.iml
+out
+
+# Kotlin DSL build cache
+.kotlin
+
+# OS files
+.DS_Store
+Thumbs.db
