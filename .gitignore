@@ -24,3 +24,9 @@ hs_err_pid*
 
 build
 .gradle
+
+# Keep the Gradle wrapper jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ Platform Gradle Plugin: downloaded IDEs and sandbox
+.intellijPlatform
