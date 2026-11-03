@@ -1,34 +1,63 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.example.DuckProgressBarPlugin</id>
+    <!-- Unique identifier of the plugin. It cannot be changed between the plugin versions. -->
+    <id>io.github.mdgfox.duckprogressbar</id>
 
-    <!-- Public plugin name should be written in Title Case.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>DuckProgressBarPlugin</name>
+    <name>Duck Progress Bar</name>
 
-    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="sashaaka4774@gmail.com">Alex Khmelev</vendor>
+    <vendor email="sashaaka4774@gmail.com" url="https://github.com/mdgfox">Alex Khmelev</vendor>
 
-    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Some try to create own plugin in language I don't know.
+    Replaces the default IDE progress bar with a swimming rubber duck.
+    <ul>
+      <li>Indeterminate progress: the duck paddles back and forth, turning around at the edges.</li>
+      <li>Determinate progress: the duck swims at the end of the filled part of the bar.</li>
+      <li>Three vector characters: duck, vampire duck and a rolling Jack-o'-lantern, plus the classic PNG duck.</li>
+      <li>Optional trail behind the duck: bubbles or wave, for indeterminate bars and optionally for determinate ones.</li>
+      <li>Character and trail are configured in Settings | Appearance &amp; Behavior | Duck Progress Bar.</li>
+    </ul>
   ]]></description>
 
-    <!-- Product and plugin compatibility requirements.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <change-notes><![CDATA[
+    <b>2.0.0</b>
+    <ul>
+      <li>New settings page: enable or disable, character and trail.</li>
+      <li>New vector characters: duck, vampire duck and Jack-o'-lantern. The classic PNG duck is still available.</li>
+      <li>New trails behind the duck: bubbles and wave.</li>
+      <li>The duck is no longer clipped by the bar and stops before the right edge.</li>
+      <li>Support for current IDE versions (2024.3 and newer).</li>
+      <li>Duck speed no longer depends on the repaint rate.</li>
+      <li>The progress bar is applied on IDE startup, not only after a theme change.</li>
+    </ul>
+  ]]></change-notes>
+
     <depends>com.intellij.modules.platform</depends>
 
-    <!-- Extension points defined by the plugin.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <applicationConfigurable parentId="appearance"
+                                 instance="io.github.mdgfox.duckprogressbar.DuckSettingsConfigurable"
+                                 id="io.github.mdgfox.duckprogressbar.settings"
+                                 displayName="Duck Progress Bar"/>
     </extensions>
 
+    <actions>
+        <group id="DuckProgressBar.PreviewGroup" text="Duck Progress Bar" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action id="DuckProgressBar.PreviewIndeterminate"
+                    class="io.github.mdgfox.duckprogressbar.PreviewProgressAction$Indeterminate"
+                    text="Preview Indeterminate Progress (10 s)"
+                    description="Runs a 10 second task with an indeterminate progress bar"/>
+            <action id="DuckProgressBar.PreviewDeterminate"
+                    class="io.github.mdgfox.duckprogressbar.PreviewProgressAction$Determinate"
+                    text="Preview Determinate Progress (10 s)"
+                    description="Runs a 10 second task with a progress bar that fills up"/>
+        </group>
+    </actions>
+
     <applicationListeners>
-        <listener class="com.example.duckprogressbarplugin.ProgressBarListener"
+        <listener class="io.github.mdgfox.duckprogressbar.ProgressBarListener"
                   topic="com.intellij.ide.ui.LafManagerListener"/>
+        <listener class="io.github.mdgfox.duckprogressbar.ProgressBarListener"
+                  topic="com.intellij.ide.AppLifecycleListener"/>
     </applicationListeners>
 </idea-plugin>

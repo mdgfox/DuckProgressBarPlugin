@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <radialGradient id="skin" cx="0.38" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#FFA640"/>
+      <stop offset="0.5" stop-color="#FF7A00"/>
+      <stop offset="1" stop-color="#C74A00"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#FFF6A8"/>
+      <stop offset="1" stop-color="#FFC21A"/>
+    </radialGradient>
+  </defs>
+  <!-- stem -->
+  <path d="M14.5 8 Q14.2 3.5 18 2.4 L19.2 4.8 Q17.4 5.4 17.8 8.5 Z" fill="#5A9A2E" stroke="#2F5E18" stroke-width="0.6" stroke-linejoin="round"/>
+  <!-- body with ribs -->
+  <ellipse cx="9.5" cy="18.5" rx="7.5" ry="10.4" fill="url(#skin)" stroke="#9A3A00" stroke-width="0.6"/>
+  <ellipse cx="22.5" cy="18.5" rx="7.5" ry="10.4" fill="url(#skin)" stroke="#9A3A00" stroke-width="0.6"/>
+  <ellipse cx="16" cy="18.5" rx="7" ry="11" fill="url(#skin)" stroke="#9A3A00" stroke-width="0.6"/>
+  <!-- highlight -->
+  <ellipse cx="9.5" cy="10.5" rx="3" ry="1.6" fill="#FFFFFF" opacity="0.4" transform="rotate(-30 9.5 10.5)"/>
+  <!-- glowing face -->
+  <path d="M7.5 16.5 L12.5 16.5 L10 11.8 Z" fill="url(#glow)" stroke="#2A1500" stroke-width="0.8" stroke-linejoin="round"/>
+  <path d="M19.5 16.5 L24.5 16.5 L22 11.8 Z" fill="url(#glow)" stroke="#2A1500" stroke-width="0.8" stroke-linejoin="round"/>
+  <path d="M16 17.5 L14.6 20.3 L17.4 20.3 Z" fill="url(#glow)" stroke="#2A1500" stroke-width="0.7" stroke-linejoin="round"/>
+  <path d="M7.5 21.5 L10.5 25 L12.6 22.6 L16 26.6 L19.4 22.6 L21.5 25 L24.5 21.5 Q16 29 7.5 21.5 Z" fill="url(#glow)" stroke="#2A1500" stroke-width="0.8" stroke-linejoin="round"/>
+</svg>
